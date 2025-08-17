@@ -1,20 +1,20 @@
 const moment = require('moment');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Copiar assets estáticos
   eleventyConfig.addPassthroughCopy("src/assets");
 
   // Filtros personalizados
-  eleventyConfig.addFilter("dateFormat", function(date, format) {
+  eleventyConfig.addFilter("dateFormat", function (date, format) {
     return moment(date).format(format || "DD/MM/YYYY");
   });
 
-  eleventyConfig.addFilter("excerpt", function(content, length = 150) {
+  eleventyConfig.addFilter("excerpt", function (content, length = 150) {
     const text = content.replace(/(<([^>]+)>)/gi, "");
     return text.length > length ? text.substring(0, length) + "..." : text;
   });
 
-  eleventyConfig.addFilter("slug", function(input) {
+  eleventyConfig.addFilter("slug", function (input) {
     if (!input) return "";
     return input.toString().toLowerCase()
       .replace(/\s+/g, '-')
@@ -25,12 +25,12 @@ module.exports = function(eleventyConfig) {
   });
 
   // Colecciones
-  eleventyConfig.addCollection("recetas", function(collectionApi) {
+  eleventyConfig.addCollection("recetas", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/recetas/*.md")
       .sort((a, b) => b.date - a.date);
   });
 
-  eleventyConfig.addCollection("categorias", function(collectionApi) {
+  eleventyConfig.addCollection("categorias", function (collectionApi) {
     const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md");
     const categorias = new Set();
 
@@ -43,7 +43,7 @@ module.exports = function(eleventyConfig) {
     return Array.from(categorias);
   });
 
-  eleventyConfig.addCollection("etiquetas", function(collectionApi) {
+  eleventyConfig.addCollection("etiquetas", function (collectionApi) {
     const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md");
     const etiquetas = new Set();
 
@@ -67,7 +67,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       output: "docs"
     },
-    pathPrefix: "/mi-blog-de-pan/", // Cambiar por el nombre de tu repositorio
+    pathPrefix: "/mis-panes/", // Cambiar por el nombre de tu repositorio
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };

@@ -1,54 +1,6 @@
-# Mi Blog de Pan 🍞
+# Mis recetas de pan
 
 Un blog estático de recetas de pan construido con Eleventy y diseñado con la estética de la plantilla Ranna. Publicación automática en GitHub Pages.
-
-## 🚀 Configuración Inicial
-
-### 1. Crear el repositorio en GitHub
-
-1. Ve a GitHub.com e inicia sesión
-2. Crea un nuevo repositorio llamado `mi-blog-de-pan` (o el nombre que prefieras)
-3. **Importante**: Marca la casilla "Add a README file"
-4. Haz clic en "Create repository"
-
-### 2. Subir los archivos
-
-1. Descarga y descomprime este ZIP
-2. En tu repositorio de GitHub, haz clic en "uploading an existing file"
-3. Arrastra todos los archivos y carpetas del ZIP
-4. Escribe un mensaje de commit: "Configuración inicial del blog"
-5. Haz clic en "Commit changes"
-
-### 3. Habilitar GitHub Pages
-
-1. Ve a Settings → Pages (en tu repositorio)
-2. En "Source", selecciona "GitHub Actions"
-3. Guarda los cambios
-
-### 4. Personalizar el sitio
-
-Edita el archivo `src/_data/site.json`:
-
-```json
-{
-  "title": "Tu Nombre - Blog de Pan",
-  "description": "Mi colección personal de recetas de pan casero",
-  "author": "Tu Nombre Completo",
-  "url": "https://tu-usuario.github.io/mi-blog-de-pan",
-  "social": {
-    "instagram": "https://instagram.com/tu-usuario",
-    "facebook": "https://facebook.com/tu-perfil",
-    "twitter": "https://twitter.com/tu-usuario"
-  }
-}
-```
-
-También actualiza el `pathPrefix` en `.eleventy.js`:
-```javascript
-pathPrefix: "/nombre-de-tu-repositorio/",
-```
-
-## 📝 Cómo Añadir una Nueva Receta
 
 ### Método 1: Desde GitHub (Web)
 
@@ -110,7 +62,7 @@ npm run dev
 # Abrir http://localhost:8080 en tu navegador
 ```
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 mi-blog-de-pan/
@@ -153,7 +105,7 @@ mi-blog-de-pan/
 └── docs/                  # Carpeta de salida (generada automáticamente)
 ```
 
-## 🎨 Personalización
+## Personalización
 
 ### Cambiar Colores
 
@@ -171,6 +123,7 @@ Edita las variables CSS en `src/assets/css/style.css`:
 
 1. Sube tus imágenes a `src/assets/images/`
 2. En el front-matter de tu receta, añade:
+
    ```yaml
    imagen: /assets/images/nombre-imagen.jpg
    ```
@@ -188,7 +141,7 @@ Edita `src/_data/site.json`:
 ]
 ```
 
-## 🏷️ Sistema de Categorías y Etiquetas
+## Sistema de Categorías y Etiquetas
 
 ### Categorías Disponibles
 
@@ -205,7 +158,7 @@ Edita `src/_data/site.json`:
 - **Por ocasión**: desayuno, merienda, cena
 - **Por origen**: italiano, francés, medio-oriente
 
-## 🔧 Comandos Útiles
+## Comandos Útiles
 
 ```bash
 # Desarrollo local
@@ -221,7 +174,7 @@ git commit -m "Nueva receta: Pan de..."
 git push origin main  # Despliega automáticamente
 ```
 
-## 🚀 Despliegue
+## Despliegue
 
 El sitio se despliega automáticamente cada vez que haces push a la rama `main`. El proceso:
 
@@ -231,25 +184,29 @@ El sitio se despliega automáticamente cada vez que haces push a la rama `main`.
 4. Publica la carpeta `docs/` en GitHub Pages
 5. Tu sitio está disponible en: `https://tu-usuario.github.io/mi-blog-de-pan/`
 
-## 🐛 Solución de Problemas
+## Solución de Problemas
 
 ### Error: "Site not found"
+
 - Verifica que GitHub Pages esté configurado correctamente
 - Asegúrate de que el repositorio sea público
 
 ### Las recetas no aparecen
+
 - Revisa que el archivo esté en `src/recetas/`
 - Verifica que el front-matter tenga la sintaxis correcta
 - Comprueba que la fecha esté en formato YYYY-MM-DD
 
 ### Estilos no se cargan
+
 - Verifica que `pathPrefix` en `.eleventy.js` coincida con el nombre de tu repositorio
 
 ### GitHub Actions falla
+
 - Revisa la pestaña "Actions" en tu repositorio
 - Verifica que `package.json` tenga todas las dependencias necesarias
 
-## 💡 Consejos y Mejores Prácticas
+## Consejos y Mejores Prácticas
 
 ### Para las Recetas
 
@@ -270,7 +227,7 @@ El sitio se despliega automáticamente cada vez que haces push a la rama `main`.
 2. **Categorías consistentes**: Mantén las mismas categorías
 3. **Fechas cronológicas**: Usa fechas reales de cuando hiciste la receta
 
-## 📞 Soporte
+## Soporte
 
 Si tienes problemas:
 
@@ -280,6 +237,6 @@ Si tienes problemas:
 
 ---
 
-¡Feliz horneado! 🥖✨
+¡Feliz horneado!
 
 *Hecho con ❤️ y mucha harina*

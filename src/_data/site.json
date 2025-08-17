@@ -1,12 +1,10 @@
 {
-  "title": "Mi Blog de Pan",
+  "title": "Mis recetas de pan",
   "description": "Recetas de pan casero y artesanal",
-  "author": "Tu Nombre",
-  "url": "https://tu-usuario.github.io/mi-blog-de-pan",
+  "author": "Tony G. Bolaño",
+  "url": "https://tonybolanyo.github.io/mis-panes",
   "social": {
-    "instagram": "https://instagram.com/tu-usuario",
-    "facebook": "https://facebook.com/tu-perfil",
-    "twitter": "https://twitter.com/tu-usuario"
+    "instagram": "https://instagram.com/tonybolanyo"
   },
   "navigation": [
     {
