@@ -1,0 +1,118 @@
+---
+layout: base.njk
+---
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Receta Header -->
+            <div class="recipe-header mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="/recetas/" class="text-decoration-none">Recetas</a></li>
+                        <li class="breadcrumb-item"><a href="/categoria/{{ categoria | slug }}/" class="text-decoration-none">{{ categoria }}</a></li>
+                        <li class="breadcrumb-item active">{{ title }}</li>
+                    </ol>
+                </nav>
+
+                <h1 class="fw-bold mb-3">{{ title }}</h1>
+
+                <div class="recipe-meta d-flex flex-wrap gap-3 mb-4">
+                    <span class="badge bg-primary fs-6">{{ categoria }}</span>
+                    <span class="text-muted">
+                        <i class="fas fa-calendar me-1"></i>{{ date | dateFormat }}
+                    </span>
+                    <span class="text-muted">
+                        <i class="fas fa-clock me-1"></i>{{ tiempo }}
+                    </span>
+                    <span class="text-muted">
+                        <i class="fas fa-users me-1"></i>{{ porciones }}
+                    </span>
+                    <span class="badge bg-{{ dificultad == 'Fácil' and 'success' or (dificultad == 'Intermedio' and 'warning' or 'danger') }}">
+                        {{ dificultad }}
+                    </span>
+                </div>
+
+                {% if descripcion %}
+                <p class="lead text-muted">{{ descripcion }}</p>
+                {% endif %}
+
+                {% if etiquetas %}
+                <div class="recipe-tags">
+                    {% for etiqueta in etiquetas %}
+                    <a href="/etiqueta/{{ etiqueta | slug }}/" class="badge bg-light text-dark text-decoration-none me-1">#{{ etiqueta }}</a>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- Imagen Principal -->
+            {% if imagen %}
+            <div class="recipe-image mb-4">
+                <img src="{{ imagen }}" class="img-fluid rounded" alt="{{ title }}">
+            </div>
+            {% endif %}
+
+            <!-- Ingredientes y Preparación -->
+            <div class="recipe-content">
+                {{ content | safe }}
+            </div>
+
+            <!-- Compartir -->
+            <div class="share-section mt-5 pt-4 border-top">
+                <h5>Comparte esta receta</h5>
+                <div class="d-flex gap-2">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="btn btn-primary btn-sm" target="_blank">
+                        <i class="fab fa-facebook-f me-1"></i>Facebook
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text={{ title }}&url={{ site.url }}{{ page.url }}" class="btn btn-info btn-sm" target="_blank">
+                        <i class="fab fa-twitter me-1"></i>Twitter
+                    </a>
+                    <a href="https://wa.me/?text={{ title }} {{ site.url }}{{ page.url }}" class="btn btn-success btn-sm" target="_blank">
+                        <i class="fab fa-whatsapp me-1"></i>WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <div class="sidebar">
+                <!-- Recetas Relacionadas -->
+                <div class="widget mb-4">
+                    <h5 class="widget-title mb-3">Recetas Relacionadas</h5>
+                    {% for receta in collections.recetas %}
+                        {% if receta.data.categoria == categoria and receta.url != page.url %}
+                        <div class="related-recipe d-flex mb-3">
+                            <div class="recipe-thumb me-3">
+                                {% if receta.data.imagen %}
+                                <img src="{{ receta.data.imagen }}" class="rounded" width="80" height="60" alt="{{ receta.data.title }}">
+                                {% else %}
+                                <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 80px; height: 60px;">
+                                    <i class="fas fa-bread-slice text-muted"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <h6><a href="{{ receta.url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
+                                <small class="text-muted">{{ receta.date | dateFormat }}</small>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <!-- Todas las Categorías -->
+                <div class="widget">
+                    <h5 class="widget-title mb-3">Categorías</h5>
+                    <div class="d-flex flex-wrap gap-1">
+                        {% for cat in collections.categorias %}
+                        <a href="/categoria/{{ cat | slug }}/" class="badge bg-light text-dark text-decoration-none">{{ cat }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

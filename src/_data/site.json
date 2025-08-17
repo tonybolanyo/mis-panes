@@ -1,0 +1,29 @@
+{
+  "title": "Mi Blog de Pan",
+  "description": "Recetas de pan casero y artesanal",
+  "author": "Tu Nombre",
+  "url": "https://tu-usuario.github.io/mi-blog-de-pan",
+  "social": {
+    "instagram": "https://instagram.com/tu-usuario",
+    "facebook": "https://facebook.com/tu-perfil",
+    "twitter": "https://twitter.com/tu-usuario"
+  },
+  "navigation": [
+    {
+      "title": "Inicio",
+      "url": "/"
+    },
+    {
+      "title": "Recetas",
+      "url": "/recetas/"
+    },
+    {
+      "title": "Categorías",
+      "url": "/categorias/"
+    },
+    {
+      "title": "Acerca de",
+      "url": "/acerca-de/"
+    }
+  ]
+}

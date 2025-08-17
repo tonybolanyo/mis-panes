@@ -1,0 +1,26 @@
+{
+  "name": "mi-blog-de-pan",
+  "version": "1.0.0",
+  "description": "Blog estático de recetas de pan con Eleventy y diseño Ranna",
+  "scripts": {
+    "build": "eleventy --input=src --output=docs",
+    "dev": "eleventy --input=src --output=docs --serve",
+    "clean": "rm -rf docs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "markdown-it": "^13.0.1",
+    "moment": "^2.29.4"
+  },
+  "keywords": [
+    "blog",
+    "recetas",
+    "pan",
+    "eleventy",
+    "github-pages"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT"
+}

@@ -1,0 +1,111 @@
+---
+layout: base.njk
+title: Todas las Recetas
+description: "Explora nuestra colección completa de recetas de pan"
+pagination:
+  data: collections.recetas
+  size: 9
+  alias: recetas
+---
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="fw-bold">Todas las Recetas</h1>
+        <p class="text-muted">Explora nuestra colección completa de recetas de pan casero</p>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filters mb-4">
+        <div class="row">
+            <div class="col-md-6">
+                <select class="form-select" id="categoryFilter">
+                    <option value="">Todas las categorías</option>
+                    {% for categoria in collections.categorias %}
+                    <option value="{{ categoria | slug }}">{{ categoria }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6">
+                <select class="form-select" id="difficultyFilter">
+                    <option value="">Todas las dificultades</option>
+                    <option value="facil">Fácil</option>
+                    <option value="intermedio">Intermedio</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de Recetas -->
+    <div class="row" id="recipesGrid">
+        {% for receta in recetas %}
+        <div class="col-lg-4 col-md-6 mb-4 recipe-item" 
+             data-category="{{ receta.data.categoria | slug }}" 
+             data-difficulty="{{ receta.data.dificultad | slug }}">
+            <div class="card recipe-card h-100 shadow-sm">
+                {% if receta.data.imagen %}
+                <img src="{{ receta.data.imagen }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
+                {% else %}
+                <div class="card-img-top recipe-placeholder bg-light d-flex align-items-center justify-content-center">
+                    <i class="fas fa-bread-slice fa-3x text-muted"></i>
+                </div>
+                {% endif %}
+
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <span class="badge bg-primary">{{ receta.data.categoria }}</span>
+                        <small class="text-muted">{{ receta.date | dateFormat }}</small>
+                    </div>
+
+                    <h5 class="card-title">
+                        <a href="{{ receta.url }}" class="text-decoration-none text-dark">{{ receta.data.title }}</a>
+                    </h5>
+
+                    <p class="card-text text-muted">{{ receta.templateContent | excerpt }}</p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="recipe-meta">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>{{ receta.data.tiempo }}
+                            </small>
+                            <small class="text-muted ms-2">
+                                <i class="fas fa-users me-1"></i>{{ receta.data.porciones }}
+                            </small>
+                        </div>
+                        <div class="recipe-difficulty">
+                            <span class="badge bg-{{ receta.data.dificultad == 'Fácil' and 'success' or (receta.data.dificultad == 'Intermedio' and 'warning' or 'danger') }}">
+                                {{ receta.data.dificultad }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Paginación -->
+    {% if pagination.hrefs.length > 1 %}
+    <nav class="mt-5">
+        <ul class="pagination justify-content-center">
+            {% if pagination.href.previous %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pagination.href.previous }}">Anterior</a>
+            </li>
+            {% endif %}
+
+            {% for pageEntry in pagination.pages %}
+            <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
+                <a class="page-link" href="{{ pagination.hrefs[ loop.index0 ] }}">{{ loop.index }}</a>
+            </li>
+            {% endfor %}
+
+            {% if pagination.href.next %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pagination.href.next }}">Siguiente</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
