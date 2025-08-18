@@ -8,6 +8,7 @@ tiempo: 5 horas (12h frío)
 porciones: 1 hogaza (920g) (10 rebanadas)
 dificultad: Fácil
 descripcion: Un pan para todos los días, fácil y sin complicaciones
+destacada: true
 ---
 
 ## Ingredientes

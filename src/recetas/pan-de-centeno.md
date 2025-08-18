@@ -2,7 +2,7 @@
 layout: receta.njk
 title: Pan de Centeno Integral
 date: 2025-08-10
-categoria: Panes Integrales
+categoria: Panes integrales
 etiquetas: [centeno, integral, masa-madre, artesanal]
 tiempo: 24 horas (con fermentación)
 porciones: 1 hogaza (1,3kg) (14 rebanadas)

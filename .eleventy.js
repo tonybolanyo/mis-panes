@@ -30,6 +30,18 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.date - a.date);
   });
 
+  // Colección de recetas destacadas
+  eleventyConfig.addCollection("destacadas", function (collectionApi) {
+    const todas = collectionApi.getFilteredByGlob("src/recetas/*.md").sort((a, b) => b.date - a.date);
+    const destacadas = todas.filter(receta => receta.data.destacada === true);
+    // Si hay menos de 6 destacadas, completar con las más recientes no destacadas
+    if (destacadas.length < 6) {
+      const faltantes = todas.filter(receta => receta.data.destacada !== true).slice(0, 6 - destacadas.length);
+      return destacadas.concat(faltantes);
+    }
+    return destacadas.slice(0, 6);
+  });
+
   eleventyConfig.addCollection("categorias", function (collectionApi) {
     const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md");
     const categorias = new Set();

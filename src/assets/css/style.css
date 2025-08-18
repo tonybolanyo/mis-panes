@@ -279,6 +279,11 @@ h6 {
 .recipe-meta small {
   color: var(--text-muted);
   font-size: var(--font-size-sm);
+  display: block;
+}
+
+.recipe-meta small i {
+  min-width: 1.25rem;
 }
 
 .badge.bg-primary {

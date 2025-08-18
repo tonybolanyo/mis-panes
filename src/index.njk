@@ -32,7 +32,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal"
         </div>
 
         <div class="row">
-            {% for receta in collections.recetas | reverse | slice(0, 6) %}
+            {% for receta in collections.destacadas %}
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card recipe-card h-100 shadow-sm">
                     {% if receta.data.imagen %}
@@ -51,6 +51,9 @@ description: "Descubre las mejores recetas de pan casero y artesanal"
 
                         <h5 class="card-title">
                             <a href="{{ receta.url }}" class="text-decoration-none text-dark">{{ receta.data.title }}</a>
+                            {% if receta.data.destacada %}
+                                <span class="ms-2 badge bg-warning text-dark" title="Receta destacada"><i class="fas fa-star"></i> Destacada</span>
+                            {% endif %}
                         </h5>
 
                         <p class="card-text text-muted">{{ receta.templateContent | excerpt }}</p>
@@ -60,7 +63,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal"
                                 <small class="text-muted">
                                     <i class="fas fa-clock me-1"></i>{{ receta.data.tiempo }}
                                 </small>
-                                <small class="text-muted ms-2">
+                                <small class="text-muted">
                                     <i class="fas fa-users me-1"></i>{{ receta.data.porciones }}
                                 </small>
                             </div>

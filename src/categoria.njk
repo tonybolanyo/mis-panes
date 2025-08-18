@@ -29,7 +29,12 @@ seo_description: "Explora las recetas de {{ categoriaName }} en nuestro blog de 
                 <img src="{{ receta.data.imagen }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
               {% endif %}
               <div class="card-body">
-                <h5 class="card-title">{{ receta.data.title }}</h5>
+                <h5 class="card-title">
+                  {{ receta.data.title }}
+                  {% if receta.data.destacada %}
+                      <span class="ms-2 badge bg-warning text-dark" title="Receta destacada"><i class="fas fa-star"></i> Destacada</span>
+                  {% endif %}
+                </h5>
                 <p class="card-text text-muted">{{ receta.templateContent | excerpt(100) }}</p>
               </div>
             </a>

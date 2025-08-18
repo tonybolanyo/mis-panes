@@ -2,7 +2,7 @@
 layout: receta.njk
 title: Pan Pita Esponjoso
 date: 2025-08-15
-categoria: Panes Planos
+categoria: Panes planos
 etiquetas: [masa, levadura, medio-oriente, fácil]
 tiempo: 2 horas
 porciones: 8 unidades
