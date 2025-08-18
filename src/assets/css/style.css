@@ -94,7 +94,8 @@
   --bs-danger: #CD5C5C;
   --bs-warning: #DAA520;
   --bs-info: #B8860B;
-  --bs-light: #FAF0E6;
+  --bs-light: #F5E6D3;
+  --bs-light-rgb: 245, 230, 211;
   /* Harina Suave */
   --bs-dark: #4A2F18;
   /* Chocolate Oscuro */

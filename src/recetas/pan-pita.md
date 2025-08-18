@@ -23,12 +23,12 @@ descripcion: Clásico pan plano del Medio Oriente, perfecto para rellenar con fa
 ## Preparación
 
 ### Paso 1: Activar la levadura
-1. En un bowl pequeño, mezcla el agua templada con el azúcar hasta disolverlo.
+1. En un cuenco pequeño, mezcla el agua templada con el azúcar hasta disolverlo.
 2. Añade la levadura y mezcla suavemente.
 3. Deja reposar durante 10 minutos hasta que se forme espuma en la superficie.
 
 ### Paso 2: Preparar la masa
-1. En un bowl grande, combina la harina y la sal.
+1. En un cuenco grande, combina la harina y la sal.
 2. Haz un hueco en el centro y vierte la mezcla de levadura y el aceite de oliva.
 3. Mezcla con una cuchara de madera hasta formar una masa pegajosa.
 
@@ -38,7 +38,7 @@ descripcion: Clásico pan plano del Medio Oriente, perfecto para rellenar con fa
 3. La masa debe ser suave al tacto pero no pegajosa.
 
 ### Paso 4: Primer leudado
-1. Coloca la masa en un bowl engrasado con aceite.
+1. Coloca la masa en un cuenco engrasado con aceite.
 2. Cubre con un paño húmedo.
 3. Deja leudar en un lugar cálido durante 1 hora o hasta que doble su tamaño.
 
@@ -56,16 +56,9 @@ descripcion: Clásico pan plano del Medio Oriente, perfecto para rellenar con fa
 2. Coloca los pitas directamente sobre la bandeja caliente.
 3. Hornea durante 5-7 minutos hasta que se inflen y se doren ligeramente.
 
-## Consejos del Chef
+## Consejos
 
 - **Temperatura del agua**: Debe estar tibia, ni muy caliente ni fría (aproximadamente 37°C).
 - **Almacenamiento**: Los pitas se conservan hasta 3 días en una bolsa cerrada.
 - **Congelación**: Puedes congelar los pitas cocidos hasta 3 meses.
 - **Variaciones**: Añade hierbas secas como orégano o tomillo a la masa para más sabor.
-
-## Información Nutricional (por unidad)
-- Calorías: 185
-- Carbohidratos: 35g
-- Proteínas: 6g
-- Grasas: 3g
-- Fibra: 2g
