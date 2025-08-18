@@ -1,0 +1,47 @@
+---
+layout: base.njk
+# Paginar sobre collections.categorias, un item por página
+pagination:
+  data: collections.categorias
+  size: 1
+  alias: categoriaName
+permalink: "/categoria/{{ categoriaName | slug }}/"
+# Metadata para SEO (se usa seo-head.njk)
+title: "Categoría {{ categoriaName }}"
+seo_title: "Recetas de {{ categoriaName }} | Mis recetas de pan"
+seo_description: "Explora las recetas de {{ categoriaName }} en nuestro blog de pan artesanal."
+---
+
+<div class="container py-5">
+  <div class="text-center mb-4">
+    <h1 class="fw-bold">{{ categoriaName }}</h1>
+  </div>
+
+  <div class="row">
+    {% set found = false %}
+    {% for receta in collections.recetas %}
+      {% if receta.data.categoria == categoriaName %}
+        {% set found = true %}
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card recipe-card h-100 shadow-sm">
+            <a href="{{ receta.url }}" class="text-decoration-none text-dark">
+              {% if receta.data.imagen %}
+                <img src="{{ receta.data.imagen }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ receta.data.title }}</h5>
+                <p class="card-text text-muted">{{ receta.templateContent | excerpt(100) }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% if not found %}
+      <div class="col-12">
+        <p class="text-center text-muted">No hay recetas en esta categoría.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>

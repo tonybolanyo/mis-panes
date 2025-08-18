@@ -62,12 +62,14 @@ module.exports = function (eleventyConfig) {
     showAllHosts: true,
   });
 
+  const isProd = process.env.NODE_ENV === "production";
+
   return {
     dir: {
       input: "src",
       output: "docs"
     },
-    pathPrefix: "/mis-panes/", // Cambiar por el nombre de tu repositorio
+    pathPrefix: isProd ? "/mis-panes/" : "/", // Cambiar por el nombre de tu repositorio
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };
