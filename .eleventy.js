@@ -81,7 +81,7 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "docs"
     },
-    pathPrefix: isProd ? "/mis-panes/" : "/", // Cambiar por el nombre de tu repositorio
+    pathPrefix: "/mis-panes/",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };
