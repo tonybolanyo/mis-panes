@@ -74,14 +74,14 @@ module.exports = function (eleventyConfig) {
     showAllHosts: true,
   });
 
-  const isProd = process.env.NODE_ENV === "production";
+  const isDev = process.env.NODE_ENV === "development";
 
   return {
     dir: {
       input: "src",
       output: "docs"
     },
-    pathPrefix: "/mis-panes/",
+    pathPrefix: isDev ? "/" : "/mis-panes/",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };
