@@ -1,0 +1,137 @@
+---
+layout: base.njk
+---
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Libro Header -->
+      <div class="book-header mb-4">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/libros/" class="text-decoration-none">Libros</a></li>
+            <li class="breadcrumb-item active">{{ titulo }}</li>
+          </ol>
+        </nav>
+
+        <h1 class="fw-bold mb-3">{{ titulo }}</h1>
+        <h2 class="h4 text-muted mb-4">por {{ autor }}</h2>
+
+        <div class="book-meta row mb-4">
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li><strong>Editorial:</strong> {{ editorial }}</li>
+              <li><strong>Año:</strong> {{ año }}</li>
+              <li><strong>Páginas:</strong> {{ paginas }}</li>
+              <li><strong>ISBN:</strong> {{ isbn }}</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="book-actions">
+              {% if enlace_amazon %}
+              <a href="{{ enlace_amazon }}" class="btn btn-warning me-2 mb-2" target="_blank" rel="nofollow">
+                <i class="fas fa-shopping-cart me-1"></i>Comprar en Amazon
+              </a>
+              {% endif %}
+              {% if enlace_casa_libro %}
+              <a href="{{ enlace_casa_libro }}" class="btn btn-info mb-2" target="_blank" rel="nofollow">
+                <i class="fas fa-book me-1"></i>Casa del Libro
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Imagen de portada para móviles -->
+      {% if imagen %}
+      <div class="book-cover-mobile d-lg-none text-center mb-4">
+        <img src="{{ imagen }}" class="img-fluid rounded shadow" alt="Portada de {{ titulo }}" style="max-width: 300px;">
+      </div>
+      {% endif %}
+
+      <!-- Reseña y contenido -->
+      <div class="book-content">
+        {{ content | safe }}
+      </div>
+
+      {% if indice %}
+      <!-- Índice de contenidos -->
+      <div class="book-index mt-5">
+        <h3>Índice de Contenidos</h3>
+        <div class="card">
+          <div class="card-body">
+            {{ indice | safe }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Compartir -->
+      <div class="share-section mt-5 pt-4 border-top">
+        <h5>Comparte este libro</h5>
+        <div class="d-flex gap-2">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" class="btn btn-primary btn-sm" target="_blank">
+            <i class="fab fa-facebook-f me-1"></i>Facebook
+          </a>
+          <a href="https://twitter.com/intent/tweet?text={{ titulo }}&url={{ site.url }}{{ page.url }}" class="btn btn-info btn-sm" target="_blank">
+            <i class="fab fa-twitter me-1"></i>Twitter
+          </a>
+          <a href="https://wa.me/?text={{ titulo }} {{ site.url }}{{ page.url }}" class="btn btn-success btn-sm" target="_blank">
+            <i class="fab fa-whatsapp me-1"></i>WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="sidebar">
+        <!-- Portada del libro -->
+        {% if imagen %}
+        <div class="widget d-none d-lg-block">
+          <div class="text-center">
+            <img src="{{ imagen }}" class="img-fluid rounded shadow mb-3" alt="Portada de {{ titulo }}" style="max-width: 100%;">
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Libros relacionados -->
+        <div class="widget mb-4">
+          <h5 class="widget-title mb-3">Otros Libros</h5>
+          {% for libro in collections.libros | limit(3) %}
+            {% if libro.url != page.url %}
+            <div class="related-book d-flex mb-3">
+              <div class="book-thumb me-3">
+                {% if libro.data.imagen %}
+                <img src="{{ libro.data.imagen }}" class="rounded" width="60" height="80" alt="{{ libro.data.titulo }}">
+                {% else %}
+                <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 60px; height: 80px;">
+                  <i class="fas fa-book text-muted"></i>
+                </div>
+                {% endif %}
+              </div>
+              <div class="flex-grow-1">
+                <h6 class="mb-1"><a href="{{ libro.url }}" class="text-decoration-none">{{ libro.data.titulo }}</a></h6>
+                <small class="text-muted">{{ libro.data.autor }}</small>
+              </div>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- Recetas relacionadas -->
+        <div class="widget">
+          <h5 class="widget-title mb-3">Recetas Relacionadas</h5>
+          {% for receta in collections.recetas | limit(3) %}
+          <div class="related-recipe mb-3">
+            <h6 class="mb-1"><a href="{{ receta.url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
+            <small class="text-muted">{{ receta.data.categoria }}</small>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

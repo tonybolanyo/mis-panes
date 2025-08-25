@@ -1,0 +1,138 @@
+---
+layout: base.njk
+title: Biblioteca de Pan
+description: Descubre nuestra colección de libros sobre panadería, técnicas de horneado y recetas tradicionales
+seo_title: "Biblioteca de Pan | Los Mejores Libros de Panadería"
+seo_description: "Explora nuestra selección de libros sobre panadería artesanal, técnicas de horneado y recetas tradicionales."
+permalink: /libros/
+---
+
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="fw-bold">{{ title }}</h1>
+    <p class="text-muted lead">{{ description }}</p>
+  </div>
+
+  <!-- Filtros -->
+  <div class="filters mb-4">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" id="bookSearch" class="form-control" placeholder="Buscar por título, autor o contenido...">
+      </div>
+      <div class="col-md-6">
+        <select class="form-select" id="yearFilter">
+          <option value="">Todos los años</option>
+          {% set years = [] %}
+          {% for libro in collections.libros %}
+            {% set years = (years.push(libro.data.año), years) %}
+          {% endfor %}
+          {% set uniqueYears = years | unique | sort | reverse %}
+          {% for year in uniqueYears %}
+          <option value="{{ year }}">{{ year }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid de libros -->
+  <div class="row" id="booksGrid">
+    {% for libro in collections.libros %}
+    <div class="col-lg-4 col-md-6 mb-4 book-item" 
+         data-title="{{ libro.data.titulo | lower }}" 
+         data-author="{{ libro.data.autor | lower }}"
+         data-year="{{ libro.data.año }}"
+         data-content="{{ libro.templateContent | striptags | lower }}">
+      <div class="card book-card h-100 shadow-sm">
+        <div class="row g-0 h-100">
+          <div class="col-4">
+            {% if libro.data.imagen %}
+            <img src="{{ libro.data.imagen }}" class="img-fluid h-100 rounded-start book-cover" alt="Portada de {{ libro.data.titulo }}">
+            {% else %}
+            <div class="bg-light h-100 d-flex align-items-center justify-content-center rounded-start">
+              <i class="fas fa-book fa-2x text-muted"></i>
+            </div>
+            {% endif %}
+          </div>
+          <div class="col-8">
+            <div class="card-body d-flex flex-column h-100">
+              <div>
+                <h5 class="card-title">
+                  <a href="{{ libro.url }}" class="text-decoration-none text-dark">{{ libro.data.titulo }}</a>
+                </h5>
+                <p class="card-text">
+                  <small class="text-muted">por <strong>{{ libro.data.autor }}</strong></small>
+                </p>
+                <p class="card-text">{{ libro.templateContent | excerpt(80) }}</p>
+              </div>
+              <div class="mt-auto">
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">{{ libro.data.año }}</small>
+                  <div class="book-actions">
+                    {% if libro.data.enlace_amazon %}
+                    <a href="{{ libro.data.enlace_amazon }}" class="btn btn-sm btn-outline-warning me-1" target="_blank" rel="nofollow" title="Ver en Amazon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    {% endif %}
+                    {% if libro.data.enlace_casa_libro %}
+                    <a href="{{ libro.data.enlace_casa_libro }}" class="btn btn-sm btn-outline-info" target="_blank" rel="nofollow" title="Ver en Casa del Libro">
+                      <i class="fas fa-book"></i>
+                    </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Mensaje si no hay libros -->
+  {% if collections.libros.length == 0 %}
+  <div class="text-center py-5">
+    <i class="fas fa-book fa-3x text-muted mb-3"></i>
+    <h3 class="text-muted">Próximamente</h3>
+    <p class="text-muted">Estamos preparando nuestra biblioteca de libros de panadería.</p>
+  </div>
+  {% endif %}
+</div>
+
+<script>
+// Búsqueda de libros
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('bookSearch');
+  const yearFilter = document.getElementById('yearFilter');
+  const bookItems = document.querySelectorAll('.book-item');
+
+  function filterBooks() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedYear = yearFilter.value;
+
+    bookItems.forEach(item => {
+      const title = item.dataset.title || '';
+      const author = item.dataset.author || '';
+      const content = item.dataset.content || '';
+      const year = item.dataset.year || '';
+
+      const matchesSearch = !searchTerm || 
+        title.includes(searchTerm) || 
+        author.includes(searchTerm) || 
+        content.includes(searchTerm);
+
+      const matchesYear = !selectedYear || year === selectedYear;
+
+      if (matchesSearch && matchesYear) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput.addEventListener('input', filterBooks);
+  yearFilter.addEventListener('change', filterBooks);
+});
+</script>

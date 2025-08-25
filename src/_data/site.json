@@ -1,10 +1,16 @@
 {
-  "title": "Mis recetas de pan",
-  "description": "Recetas de pan casero y artesanal",
-  "author": "Tony G. Bolaño",
+  "title": "Panes Artesanales - Tony Bolaño",
+  "description": "Recetas de pan casero y artesanal. Aprende a hacer pan paso a paso con ingredientes naturales y técnicas tradicionales.",
+  "author": "Tony Bolaño",
   "url": "https://tonybolanyo.github.io/mis-panes",
+  "baseUrl": "https://tonybolanyo.github.io/mis-panes",
+  "pathPrefix": "/mis-panes",
+  "language": "es",
+  "locale": "es_ES",
+  "google_analytics": "",
   "social": {
-    "instagram": "https://instagram.com/tonybolanyo"
+    "instagram": "https://instagram.com/tonybolanyo",
+    "github": "https://github.com/tonybolanyo"
   },
   "navigation": [
     {
@@ -16,6 +22,10 @@
       "url": "/recetas/"
     },
     {
+      "title": "Libros",
+      "url": "/libros/"
+    },
+    {
       "title": "Categorías",
       "url": "/categorias/"
     },
@@ -23,5 +33,18 @@
       "title": "Acerca de",
       "url": "/acerca-de/"
     }
-  ]
+  ],
+  "seo": {
+    "keywords": [
+      "recetas de pan",
+      "pan casero",
+      "pan artesanal",
+      "masa madre",
+      "horneado",
+      "panadería",
+      "libros panadería"
+    ],
+    "image": "/assets/images/og-default.jpg",
+    "schema_type": "WebSite"
+  }
 }

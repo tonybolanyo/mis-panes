@@ -9,6 +9,10 @@ module.exports = function (eleventyConfig) {
     return moment(date).format(format || "DD/MM/YYYY");
   });
 
+  eleventyConfig.addFilter("dateISO", function (date) {
+    return moment(date).toISOString();
+  });
+
   eleventyConfig.addFilter("excerpt", function (content, length = 150) {
     const text = content.replace(/(<([^>]+)>)/gi, "");
     return text.length > length ? text.substring(0, length) + "..." : text;
@@ -24,9 +28,23 @@ module.exports = function (eleventyConfig) {
       .replace(/-+$/, '');
   });
 
+  eleventyConfig.addFilter("limit", function (array, limit) {
+    return array.slice(0, limit);
+  });
+
+  eleventyConfig.addFilter("reverse", function (array) {
+    return array.reverse();
+  });
+
+  eleventyConfig.addFilter("truncate", function (str, length) {
+    if (str.length <= length) return str;
+    return str.substring(0, length) + "...";
+  });
+
   // Colecciones
   eleventyConfig.addCollection("recetas", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/recetas/*.md")
+      .filter(item => !item.data.draft)
       .sort((a, b) => b.date - a.date);
   });
 
@@ -42,8 +60,15 @@ module.exports = function (eleventyConfig) {
     return destacadas.slice(0, 6);
   });
 
+  eleventyConfig.addCollection("libros", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("src/libros/*.md")
+      .filter(item => !item.data.draft)
+      .sort((a, b) => b.date - a.date);
+  });
+
   eleventyConfig.addCollection("categorias", function (collectionApi) {
-    const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md");
+    const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md")
+      .filter(item => !item.data.draft);
     const categorias = new Set();
 
     recetas.forEach(receta => {
@@ -56,7 +81,8 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("etiquetas", function (collectionApi) {
-    const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md");
+    const recetas = collectionApi.getFilteredByGlob("src/recetas/*.md")
+      .filter(item => !item.data.draft);
     const etiquetas = new Set();
 
     recetas.forEach(receta => {
@@ -67,6 +93,9 @@ module.exports = function (eleventyConfig) {
 
     return Array.from(etiquetas);
   });
+
+  // Shortcode para fechas
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Configuración del servidor de desarrollo
   eleventyConfig.setServerOptions({
@@ -83,6 +112,7 @@ module.exports = function (eleventyConfig) {
     },
     pathPrefix: isDev ? "/" : "/mis-panes/",
     markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk"
+    htmlTemplateEngine: "njk",
+    templateFormats: ["md", "njk", "html", "liquid"]
   };
 };

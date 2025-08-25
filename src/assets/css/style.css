@@ -1,251 +1,8 @@
-/* Panes Artesanales - Tema Cálido */
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+/* Estilos específicos para la sección de libros */
 
-:root {
-  /* === COLORES CÁLIDOS === */
-  /* Colores principales */
-  --primary-color: #D4A574;
-  /* Corteza Dorada */
-  --primary-light: #E1B885;
-  /* Corteza Clara */
-  --primary-dark: #C19463;
-  /* Corteza Tostada */
-
-  /* Colores secundarios */
-  --secondary-color: #6B4423;
-  /* Chocolate Amargo */
-  --secondary-light: #8B7355;
-  /* Masa Madre */
-  --secondary-dark: #4A2F18;
-  /* Chocolate Oscuro */
-
-  /* Colores de acento */
-  --accent-color: #D2691E;
-  /* Canela Especiada */
-  --accent-light: #F4A460;
-  /* Canela Clara */
-  --accent-dark: #B8860B;
-  /* Caramelo Tostado */
-
-  /* Fondos */
-  --bg-primary: #FAF0E6;
-  /* Harina Suave */
-  --bg-secondary: #F5E6D3;
-  /* Miga Cremosa */
-  --bg-accent: #DEB887;
-  /* Trigo Maduro */
-  --bg-dark: #8B4513;
-  /* Centeno Oscuro */
-
-  /* Texto */
-  --text-primary: #6B4423;
-  /* Chocolate Amargo */
-  --text-secondary: #8B7355;
-  /* Masa Madre */
-  --text-light: #CD853F;
-  /* Avena Tostada */
-  --text-muted: #A0826D;
-  /* Texto Suave */
-
-  /* Neutros */
-  --neutral-light: #F4E4BC;
-  /* Semillas de Sésamo */
-  --neutral-medium: #DDD3C0;
-  /* Levadura Natural */
-  --neutral-dark: #8B7355;
-  /* Masa Madre */
-
-  /* Estados */
-  --success-color: #9CAF88;
-  /* Aceite de Oliva */
-  --warning-color: #DAA520;
-  /* Dorado Intenso */
-  --error-color: #CD5C5C;
-  /* Rojo Cálido */
-  --info-color: #B8860B;
-  /* Caramelo Tostado */
-
-  /* Bordes */
-  --border-light: #E8DCC6;
-  --border-medium: #D4C5B9;
-  --border-dark: #C19463;
-
-  /* Sombras */
-  --shadow-light: rgba(107, 68, 35, 0.1);
-  --shadow-medium: rgba(107, 68, 35, 0.15);
-  --shadow-dark: rgba(107, 68, 35, 0.25);
-
-  /* Degradados */
-  --gradient-warm: linear-gradient(135deg, #D4A574 0%, #D2691E 100%);
-  --gradient-soft: linear-gradient(135deg, #F5E6D3 0%, #DEB887 100%);
-  --gradient-hero: linear-gradient(135deg, #D4A574 0%, #B8860B 50%, #8B4513 100%);
-
-  /* Reemplaza el tono azul predeterminado de Bootstrap */
-  --bs-primary: #D4A574;
-  /* Corteza Dorada */
-  --bs-primary-rgb: 212, 165, 116;
-  --bs-secondary: #6B4423;
-  /* Chocolate Amargo */
-  --bs-secondary-rgb: 107, 68, 35;
-  --bs-success: #9CAF88;
-  /* Aceite de Oliva */
-  --bs-danger: #CD5C5C;
-  --bs-warning: #DAA520;
-  --bs-info: #B8860B;
-  --bs-light: #F5E6D3;
-  --bs-light-rgb: 245, 230, 211;
-  /* Harina Suave */
-  --bs-dark: #4A2F18;
-  /* Chocolate Oscuro */
-
-  /* Reemplazar el color de enlaces de Bootstrap por el color cálido que prefieras */
-  --bs-link-color: #D4A574;
-  /* Corteza Dorada */
-  --bs-link-color-rgb: 212, 165, 116;
-
-  /* === TIPOGRAFÍAS === */
-  /* Familias de fuentes */
-  --font-primary: 'Merriweather', serif;
-  --font-secondary: 'Source Sans Pro', sans-serif;
-  --font-display: 'Playfair Display', serif;
-  --font-script: 'Dancing Script', cursive;
-
-  /* Tamaños de fuente */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-
-  /* Alturas de línea */
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-
-  /* Pesos de fuente */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-  --font-weight-black: 900;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font-secondary);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  color: var(--text-primary);
-}
-
-/* Header Styles */
-.top-header {
-  background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-light);
-  color: var(--text-secondary);
-}
-
-.navbar-brand {
-  font-family: var(--font-display);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-color) !important;
-  font-size: var(--font-size-2xl);
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: var(--text-primary);
-  font-weight: var(--font-weight-medium);
-  transition: color 0.3s ease;
-}
-
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link:focus {
-  color: var(--primary-color);
-}
-
-.search-box {
-  position: relative;
-}
-
-.search-box input {
-  padding-right: 40px;
-  border-radius: 25px;
-  border: 2px solid var(--border-medium);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.search-box input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
-}
-
-.search-btn {
-  position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: none;
-  color: var(--text-secondary);
-}
-
-.search-btn:hover {
-  color: var(--primary-color);
-}
-
-/* Hero Section */
-.hero-section {
-  background: var(--gradient-hero);
-  color: var(--bg-primary);
-}
-
-.hero-section h1 {
-  font-family: var(--font-display);
-  color: var(--bg-primary);
-}
-
-.hero-section .btn-light {
-  background-color: var(--bg-primary);
-  border-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-weight: var(--font-weight-semibold);
-}
-
-.hero-section .btn-light:hover {
-  background-color: var(--neutral-light);
-  border-color: var(--neutral-light);
-  color: var(--text-primary);
-}
-
-/* Recipe Cards */
-.recipe-card {
+/* Book cards */
+.book-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: none;
   overflow: hidden;
@@ -253,372 +10,153 @@ h6 {
   box-shadow: 0 4px 6px var(--shadow-light);
 }
 
-.recipe-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px var(--shadow-medium);
-}
-
-.recipe-image {
-  height: 200px;
-  object-fit: cover;
-  width: 100%;
-}
-
-.recipe-placeholder {
-  height: 200px;
-  background: var(--gradient-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.recipe-placeholder i {
-  color: var(--primary-color);
-}
-
-.recipe-meta small {
-  color: var(--text-muted);
-  font-size: var(--font-size-sm);
-  display: block;
-}
-
-.recipe-meta small i {
-  min-width: 1.25rem;
-}
-
-.badge.bg-primary {
-  background-color: var(--primary-color) !important;
-  color: var(--bg-primary);
-}
-
-.badge.bg-success {
-  background-color: var(--success-color) !important;
-}
-
-.badge.bg-warning {
-  background-color: var(--warning-color) !important;
-  color: var(--text-primary);
-}
-
-.badge.bg-danger {
-  background-color: var(--error-color) !important;
-}
-
-/* Categories Section */
-.categories-section {
-  background-color: var(--bg-secondary);
-}
-
-.category-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid var(--border-light);
-  background-color: var(--bg-primary);
-}
-
-.category-card:hover {
+.book-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px var(--shadow-medium);
-  border-color: var(--primary-color);
 }
 
-.category-card i {
-  color: var(--primary-color);
+.book-cover {
+  object-fit: cover;
+  object-position: center;
 }
 
-.category-card .btn-outline-primary {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+.book-item[data-year] {
+  transition: opacity 0.3s ease;
 }
 
-.category-card .btn-outline-primary:hover {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--bg-primary);
-}
-
-/* Recipe Detail Styles */
-.recipe-header {
+/* Book detail page */
+.book-header {
   border-bottom: 3px solid var(--border-medium);
   padding-bottom: 2rem;
   margin-bottom: 2rem;
 }
 
-.recipe-tags .badge {
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: var(--neutral-medium);
-  color: var(--text-primary);
+.book-meta ul {
+  background-color: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 8px;
 }
 
-.recipe-content h2 {
+.book-actions .btn {
+  margin-bottom: 0.5rem;
+}
+
+.book-content {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+.book-content h3 {
   color: var(--primary-color);
   margin-top: 2rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--border-light);
-  font-family: var(--font-primary);
 }
 
-.recipe-content h3 {
-  color: var(--secondary-color);
-  margin-top: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-
-.recipe-content ul,
-.recipe-content ol {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.recipe-content li {
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.recipe-content blockquote {
-  border-left: 4px solid var(--primary-color);
+.book-index .card {
   background-color: var(--bg-secondary);
-  padding: 1rem 1.5rem;
-  margin: 1.5rem 0;
-  font-style: italic;
-}
-
-/* Sidebar Styles */
-.widget {
-  background: var(--bg-primary);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px var(--shadow-light);
   border: 1px solid var(--border-light);
-  margin-bottom: 2rem;
 }
 
-.widget-title {
-  color: var(--secondary-color);
-  font-family: var(--font-primary);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border-light);
+.book-index ul {
+  margin-bottom: 0;
 }
 
-.related-recipe {
-  padding: 0.5rem 0;
+.book-index li {
+  margin-bottom: 0.5rem;
+}
+
+/* Related books */
+.related-book {
+  padding: 0.75rem 0;
   border-bottom: 1px solid var(--border-light);
 }
 
-.related-recipe:last-child {
+.related-book:last-child {
   border-bottom: none;
 }
 
-.related-recipe h6 a {
+.related-book h6 a {
   color: var(--text-primary);
   font-size: var(--font-size-sm);
   text-decoration: none;
 }
 
-.related-recipe h6 a:hover {
+.related-book h6 a:hover {
   color: var(--primary-color);
 }
 
-/* Buttons */
-.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  font-weight: var(--font-weight-semibold);
+.book-thumb img {
+  border: 1px solid var(--border-light);
 }
 
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-  border-color: var(--primary-dark);
-}
-
-.btn-outline-primary {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--bg-primary);
-}
-
-/* Footer Styles */
-.footer-area {
-  background: var(--gradient-hero);
-  color: var(--bg-primary);
-}
-
-.footer-widget h5,
-.footer-widget h6 {
-  color: var(--bg-primary);
-  font-family: var(--font-primary);
-  margin-bottom: 1rem;
-}
-
-.footer-widget ul li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-widget ul li a {
-  color: var(--neutral-light);
-  text-decoration: none;
-}
-
-.footer-widget ul li a:hover {
-  color: var(--bg-primary);
-}
-
-.footer-widget .social-links a {
-  color: var(--neutral-light);
-  font-size: var(--font-size-lg);
-  margin-right: 1rem;
-  transition: color 0.3s ease;
-}
-
-.footer-widget .social-links a:hover {
-  color: var(--bg-primary);
-}
-
-/* Forms */
-.form-control {
-  border: 2px solid var(--border-medium);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.form-control:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.form-select {
-  border: 2px solid var(--border-medium);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-}
-
-.form-select:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
-}
-
-/* Decorative Text */
-.decorative-text,
-.chef-note {
-  font-family: var(--font-script);
-  font-size: var(--font-size-lg);
-  color: var(--accent-color);
-  font-weight: var(--font-weight-medium);
-}
-
-/* Breadcrumbs */
-.breadcrumb {
-  background-color: var(--bg-secondary);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-}
-
-.breadcrumb-item a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-
-.breadcrumb-item a:hover {
-  color: var(--primary-color);
-}
-
-.breadcrumb-item.active {
-  color: var(--text-primary);
-}
-
-/* Responsive Styles */
+/* Responsive adjustments for books */
 @media (max-width: 768px) {
-  .hero-section {
-    text-align: center;
-    padding: 2rem 0;
+  .book-card .row > div:first-child {
+    flex: 0 0 35%;
+    max-width: 35%;
   }
 
-  .recipe-meta {
-    font-size: var(--font-size-sm);
+  .book-card .row > div:last-child {
+    flex: 0 0 65%;
+    max-width: 65%;
   }
 
-  .search-box {
-    width: 100%;
-    margin-top: 1rem;
+  .book-actions {
+    display: flex;
+    gap: 0.5rem;
   }
 
-  .recipe-card {
-    margin-bottom: 1.5rem;
-  }
-}
-
-/* Animation */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .book-actions .btn {
+    margin-bottom: 0;
   }
 }
 
-.recipe-card {
+/* Book search and filters */
+#bookSearch {
+  border: 2px solid var(--border-medium);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#bookSearch:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
+}
+
+#yearFilter {
+  border: 2px solid var(--border-medium);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#yearFilter:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
+}
+
+/* Animation for book items */
+.book-item {
   animation: fadeInUp 0.6s ease;
 }
 
-/* Print Styles */
+/* Print styles for books */
 @media print {
-
-  .navbar,
-  .footer-area,
-  .sidebar,
-  .share-section {
+  .book-actions,
+  .share-section,
+  .sidebar {
     display: none !important;
   }
 
-  .recipe-content {
+  .book-content {
     font-size: 12pt;
     line-height: 1.4;
     color: #000;
   }
 
-  .recipe-content h2,
-  .recipe-content h3 {
-    page-break-after: avoid;
-    color: #000;
-  }
-
-  .recipe-content li {
-    page-break-inside: avoid;
-  }
-
-  body {
+  .book-meta ul {
     background: white;
-    color: black;
+    border: 1px solid #000;
   }
-}
-
-/* Utilidades adicionales */
-.text-warm {
-  color: var(--accent-color);
-}
-
-.bg-warm {
-  background-color: var(--bg-accent);
-}
-
-.border-warm {
-  border-color: var(--primary-color);
-}
-
-.shadow-warm {
-  box-shadow: 0 4px 6px var(--shadow-medium);
 }
