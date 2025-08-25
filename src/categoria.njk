@@ -24,7 +24,7 @@ seo_description: "Explora las recetas de {{ categoriaName }} en nuestro blog de 
         {% set found = true %}
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card recipe-card h-100 shadow-sm">
-            <a href="{{ receta.url }}" class="text-decoration-none text-dark">
+            <a href="{{ receta.url | url }}" class="text-decoration-none text-dark">
               {% if receta.data.imagen %}
                 <img src="{{ receta.data.imagen | url }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
               {% endif %}
