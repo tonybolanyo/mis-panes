@@ -31,7 +31,7 @@ seo_description: "Descubre nuestras recetas de pan organizadas por categorías: 
             <p class="text-muted">
               {{ count }} receta{% if count != 1 %}s{% endif %}
             </p>
-            <a href="/categoria/{{ cat | slug }}/" class="btn btn-outline-primary">
+            <a href="{{ ('/categoria/' + (cat | slug) + '/') | url }}" class="btn btn-outline-primary">
               Ver Recetas
             </a>
           </div>

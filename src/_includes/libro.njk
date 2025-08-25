@@ -9,8 +9,8 @@ layout: base.njk
       <div class="book-header mb-4">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="/libros/" class="text-decoration-none">Libros</a></li>
+            <li class="breadcrumb-item"><a href="{{ '/' | url }}" class="text-decoration-none">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{{ '/libros/' | url }}" class="text-decoration-none">Libros</a></li>
             <li class="breadcrumb-item active">{{ titulo }}</li>
           </ol>
         </nav>
@@ -47,7 +47,7 @@ layout: base.njk
       <!-- Imagen de portada para móviles -->
       {% if imagen %}
       <div class="book-cover-mobile d-lg-none text-center mb-4">
-        <img src="{{ imagen }}" class="img-fluid rounded shadow" alt="Portada de {{ titulo }}" style="max-width: 300px;">
+        <img src="{{ imagen | url }}" class="img-fluid rounded shadow" alt="Portada de {{ titulo }}" style="max-width: 300px;">
       </div>
       {% endif %}
 
@@ -92,7 +92,7 @@ layout: base.njk
         {% if imagen %}
         <div class="widget d-none d-lg-block">
           <div class="text-center">
-            <img src="{{ imagen }}" class="img-fluid rounded shadow mb-3" alt="Portada de {{ titulo }}" style="max-width: 100%;">
+            <img src="{{ imagen | url }}" class="img-fluid rounded shadow mb-3" alt="Portada de {{ titulo }}" style="max-width: 100%;">
           </div>
         </div>
         {% endif %}
@@ -105,7 +105,7 @@ layout: base.njk
             <div class="related-book d-flex mb-3">
               <div class="book-thumb me-3">
                 {% if libro.data.imagen %}
-                <img src="{{ libro.data.imagen }}" class="rounded" width="60" height="80" alt="{{ libro.data.titulo }}">
+                <img src="{{ libro.data.imagen | url }}" class="rounded" width="60" height="80" alt="{{ libro.data.titulo }}">
                 {% else %}
                 <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width: 60px; height: 80px;">
                   <i class="fas fa-book text-muted"></i>

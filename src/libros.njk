@@ -47,7 +47,7 @@ permalink: /libros/
         <div class="row g-0 h-100">
           <div class="col-4">
             {% if libro.data.imagen %}
-            <img src="{{ libro.data.imagen }}" class="img-fluid h-100 rounded-start book-cover" alt="Portada de {{ libro.data.titulo }}">
+            <img src="{{ libro.data.imagen | url }}" class="img-fluid h-100 rounded-start book-cover" alt="Portada de {{ libro.data.titulo }}">
             {% else %}
             <div class="bg-light h-100 d-flex align-items-center justify-content-center rounded-start">
               <i class="fas fa-book fa-2x text-muted"></i>
