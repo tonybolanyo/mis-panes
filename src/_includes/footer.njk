@@ -29,7 +29,7 @@
                     <h6 class="mb-3">Categorías Populares</h6>
                     <ul class="list-unstyled">
                         {% for categoria in collections.categorias %}
-                        <li><a href="/categoria/{{ categoria | slug }}/" class="text-light text-decoration-none">{{ categoria }}</a></li>
+                        <li><a href="{{ ('/categoria/' + (categoria | slug) + '/') | url }}" class="text-light text-decoration-none">{{ categoria }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

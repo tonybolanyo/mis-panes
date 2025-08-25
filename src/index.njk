@@ -12,11 +12,11 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
                 <h1 class="display-4 fw-bold mb-4">Bienvenido a {{ site.title }}</h1>
                 <p class="lead mb-4">{{ site.description }}</p>
                 <div class="d-flex gap-3">
-                    <a href="/recetas/" class="btn btn-light btn-lg">
+                    <a href="{{ '/recetas/' | url }}" class="btn btn-light btn-lg">
                         <i class="fas fa-bread-slice me-2"></i>
                         Ver Recetas
                     </a>
-                    <a href="/libros/" class="btn btn-outline-light btn-lg">
+                    <a href="{{ '/libros/' | url }}" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-book me-2"></i>
                         Explorar Libros
                     </a>
@@ -42,7 +42,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card recipe-card h-100 shadow-sm">
                     {% if receta.data.imagen %}
-                    <img src="{{ receta.data.imagen }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
+                    <img src="{{ receta.data.imagen | url }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
                     {% else %}
                     <div class="card-img-top recipe-placeholder bg-light d-flex align-items-center justify-content-center">
                         <i class="fas fa-bread-slice fa-3x text-muted"></i>
@@ -86,7 +86,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
         </div>
 
         <div class="text-center mt-4">
-            <a href="/recetas/" class="btn btn-primary btn-lg">Ver Todas las Recetas</a>
+            <a href="{{ '/recetas/' | url }}" class="btn btn-primary btn-lg">Ver Todas las Recetas</a>
         </div>
     </div>
 </section>
@@ -107,7 +107,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
                     <div class="row g-0 h-100">
                         <div class="col-4">
                             {% if libro.data.imagen %}
-                            <img src="{{ libro.data.imagen }}" class="img-fluid h-100 rounded-start book-cover" alt="Portada de {{ libro.data.titulo }}">
+                            <img src="{{ libro.data.imagen | url }}" class="img-fluid h-100 rounded-start book-cover" alt="Portada de {{ libro.data.titulo }}">
                             {% else %}
                             <div class="bg-light h-100 d-flex align-items-center justify-content-center rounded-start">
                                 <i class="fas fa-book fa-2x text-muted"></i>
@@ -137,7 +137,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
         </div>
 
         <div class="text-center mt-4">
-            <a href="/libros/" class="btn btn-outline-primary btn-lg">
+            <a href="{{ '/libros/' | url }}" class="btn btn-outline-primary btn-lg">
                 <i class="fas fa-book me-2"></i>Ver Toda la Biblioteca
             </a>
         </div>
@@ -159,7 +159,7 @@ description: "Descubre las mejores recetas de pan casero y artesanal, además de
                 <div class="category-card text-center p-4 bg-white rounded shadow-sm">
                     <i class="fas fa-bread-slice fa-2x text-primary mb-3"></i>
                     <h5>{{ categoria }}</h5>
-                    <a href="/categoria/{{ categoria | slug }}/" class="btn btn-outline-primary btn-sm">Ver Recetas</a>
+                    <a href="{{ ('/categoria/' + (categoria | slug) + '/') | url }}" class="btn btn-outline-primary btn-sm">Ver Recetas</a>
                 </div>
             </div>
             {% endfor %}

@@ -44,7 +44,7 @@ pagination:
              data-difficulty="{{ receta.data.dificultad | slug }}">
             <div class="card recipe-card h-100 shadow-sm">
                 {% if receta.data.imagen %}
-                <img src="{{ receta.data.imagen }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
+                <img src="{{ receta.data.imagen | url }}" class="card-img-top recipe-image" alt="{{ receta.data.title }}">
                 {% else %}
                 <div class="card-img-top recipe-placeholder bg-light d-flex align-items-center justify-content-center">
                     <i class="fas fa-bread-slice fa-3x text-muted"></i>
