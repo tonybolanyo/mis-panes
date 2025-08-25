@@ -2,7 +2,7 @@
 
 :root {
   /* Main Colors */
-  --primary-color: #D4A574;        /* Golden Crust - Primary buttons and links */
+  --primary-color: #9A7C4F;        /* Golden Crust (darker for accessibility) - Primary buttons and links */
   --text-primary: #6B4423;         /* Dark Chocolate - Main text color */
   --accent-color: #D2691E;         /* Spiced Cinnamon - Hover states and highlights */
   --bg-primary: #FAF0E6;           /* Soft Flour - Main warm background */
@@ -59,7 +59,7 @@
   /* Bootstrap Variable Overrides */
   /* These will override Bootstrap's default color scheme */
   --bs-primary: var(--primary-color);
-  --bs-primary-rgb: 212, 165, 116;
+  --bs-primary-rgb: 154, 124, 79;
   --bs-secondary: var(--text-secondary);
   --bs-secondary-rgb: 139, 69, 19;
   --bs-success: var(--success-color);
@@ -73,7 +73,7 @@
 
   /* Link Colors */
   --bs-link-color: var(--primary-color);
-  --bs-link-color-rgb: 212, 165, 116;
+  --bs-link-color-rgb: 154, 124, 79;
   --bs-link-hover-color: var(--accent-color);
   --bs-link-hover-color-rgb: 210, 105, 30;
 
@@ -178,5 +178,5 @@ a:hover {
   background-color: var(--bg-primary);
   border-color: var(--primary-color);
   color: var(--text-primary);
-  box-shadow: 0 0 0 0.2rem rgba(212, 165, 116, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(154, 124, 79, 0.25);
 }
