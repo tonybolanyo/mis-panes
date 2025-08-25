@@ -41,6 +41,10 @@ module.exports = function (eleventyConfig) {
     return str.substring(0, length) + "...";
   });
 
+  eleventyConfig.addFilter("unique", function (array) {
+    return [...new Set(array)];
+  });
+
   // Colecciones
   eleventyConfig.addCollection("recetas", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/recetas/*.md")
