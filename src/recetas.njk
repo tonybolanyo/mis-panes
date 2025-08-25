@@ -58,7 +58,7 @@ pagination:
                     </div>
 
                     <h5 class="card-title">
-                        <a href="{{ receta.url }}" class="text-decoration-none text-dark">{{ receta.data.title }}</a>
+                        <a href="{{ receta.url | url }}" class="text-decoration-none text-dark">{{ receta.data.title }}</a>
                         {% if receta.data.destacada %}
                             <span class="ms-2 badge bg-warning text-dark" title="Receta destacada"><i class="fas fa-star"></i> Destacada</span>
                         {% endif %}

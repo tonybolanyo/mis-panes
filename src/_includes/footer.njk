@@ -40,7 +40,7 @@
                     <h6 class="mb-3">Recetas Recientes</h6>
                     {% for receta in collections.recetas | reverse | slice(0, 3) %}
                     <div class="recent-recipe mb-2">
-                        <a href="{{ receta.url }}" class="text-light text-decoration-none small d-block">
+                        <a href="{{ receta.url | url }}" class="text-light text-decoration-none small d-block">
                             {{ receta.data.title }}
                         </a>
                     </div>

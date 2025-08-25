@@ -113,7 +113,7 @@ layout: base.njk
                 {% endif %}
               </div>
               <div class="flex-grow-1">
-                <h6 class="mb-1"><a href="{{ libro.url }}" class="text-decoration-none">{{ libro.data.titulo }}</a></h6>
+                <h6 class="mb-1"><a href="{{ libro.url | url }}" class="text-decoration-none">{{ libro.data.titulo }}</a></h6>
                 <small class="text-muted">{{ libro.data.autor }}</small>
               </div>
             </div>
@@ -126,7 +126,7 @@ layout: base.njk
           <h5 class="widget-title mb-3">Recetas Relacionadas</h5>
           {% for receta in collections.recetas | limit(3) %}
           <div class="related-recipe mb-3">
-            <h6 class="mb-1"><a href="{{ receta.url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
+            <h6 class="mb-1"><a href="{{ receta.url | url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
             <small class="text-muted">{{ receta.data.categoria }}</small>
           </div>
           {% endfor %}

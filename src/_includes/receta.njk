@@ -95,7 +95,7 @@ layout: base.njk
                                 {% endif %}
                             </div>
                             <div>
-                                <h6><a href="{{ receta.url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
+                                <h6><a href="{{ receta.url | url }}" class="text-decoration-none">{{ receta.data.title }}</a></h6>
                                 <small class="text-muted">{{ receta.date | dateFormat }}</small>
                             </div>
                         </div>

@@ -58,7 +58,7 @@ permalink: /libros/
             <div class="card-body d-flex flex-column h-100">
               <div>
                 <h5 class="card-title">
-                  <a href="{{ libro.url }}" class="text-decoration-none text-dark">{{ libro.data.titulo }}</a>
+                  <a href="{{ libro.url | url }}" class="text-decoration-none text-dark">{{ libro.data.titulo }}</a>
                 </h5>
                 <p class="card-text">
                   <small class="text-muted">por <strong>{{ libro.data.autor }}</strong></small>
