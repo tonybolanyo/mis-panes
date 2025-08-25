@@ -1,0 +1,182 @@
+/* CSS Variables for Warm Bread-Inspired Color Palette and Typography */
+
+:root {
+  /* Main Colors */
+  --primary-color: #9A7C4F;        /* Golden Crust (darker for accessibility) - Primary buttons and links */
+  --text-primary: #6B4423;         /* Dark Chocolate - Main text color */
+  --accent-color: #D2691E;         /* Spiced Cinnamon - Hover states and highlights */
+  --bg-primary: #FAF0E6;           /* Soft Flour - Main warm background */
+  --bg-secondary: #F5E6D3;         /* Creamy Crumb - Secondary background */
+  --bg-highlight: #DEB887;         /* Ripe Wheat - Highlighted/backgrounded sections */
+
+  /* Support Colors */
+  --bg-light: #F4E4BC;             /* Sesame Seed - Very light neutral */
+  --text-secondary: #8B4513;       /* Dark Rye - Secondary text */
+  --success-color: #9CAF88;        /* Olive Oil - Success/natural highlights */
+
+  /* Border Colors */
+  --border-light: #E6D7C3;         /* Lighter version of creamy crumb */
+  --border-medium: #D4C5A9;        /* Medium border tone */
+  --border-dark: #C4B59A;          /* Darker border for emphasis */
+
+  /* Shadow Colors */
+  --shadow-light: rgba(107, 68, 35, 0.1);    /* Light shadow with chocolate base */
+  --shadow-medium: rgba(107, 68, 35, 0.2);   /* Medium shadow */
+  --shadow-dark: rgba(107, 68, 35, 0.3);     /* Dark shadow */
+
+  /* Typography Variables */
+  --font-family-heading: 'Merriweather', serif;        /* Elegant serif for headings */
+  --font-family-logo: 'Playfair Display', serif;       /* Dramatic serif for logo */
+  --font-family-body: 'Source Sans Pro', sans-serif;   /* Clean sans-serif for body */
+  --font-family-decorative: 'Dancing Script', cursive; /* Script for decorative elements */
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;         /* 12px */
+  --font-size-sm: 0.875rem;        /* 14px */
+  --font-size-base: 1rem;          /* 16px */
+  --font-size-lg: 1.125rem;        /* 18px */
+  --font-size-xl: 1.25rem;         /* 20px */
+  --font-size-2xl: 1.5rem;         /* 24px */
+  --font-size-3xl: 1.875rem;       /* 30px */
+  --font-size-4xl: 2.25rem;        /* 36px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Bootstrap Variable Overrides */
+  /* These will override Bootstrap's default color scheme */
+  --bs-primary: var(--primary-color);
+  --bs-primary-rgb: 154, 124, 79;
+  --bs-secondary: var(--text-secondary);
+  --bs-secondary-rgb: 139, 69, 19;
+  --bs-success: var(--success-color);
+  --bs-success-rgb: 156, 175, 136;
+  --bs-body-color: var(--text-primary);
+  --bs-body-color-rgb: 107, 68, 35;
+  --bs-body-bg: var(--bg-primary);
+  --bs-body-bg-rgb: 250, 240, 230;
+  --bs-border-color: var(--border-light);
+  --bs-border-color-rgb: 230, 215, 195;
+
+  /* Link Colors */
+  --bs-link-color: var(--primary-color);
+  --bs-link-color-rgb: 154, 124, 79;
+  --bs-link-hover-color: var(--accent-color);
+  --bs-link-hover-color-rgb: 210, 105, 30;
+
+  /* Button Colors */
+  --bs-btn-color: var(--bg-primary);
+  --bs-btn-bg: var(--primary-color);
+  --bs-btn-border-color: var(--primary-color);
+  --bs-btn-hover-color: var(--bg-primary);
+  --bs-btn-hover-bg: var(--accent-color);
+  --bs-btn-hover-border-color: var(--accent-color);
+
+  /* Card and Component Backgrounds */
+  --bs-light: var(--bg-light);
+  --bs-light-rgb: 244, 228, 188;
+  --bs-secondary-bg: var(--bg-secondary);
+  --bs-secondary-bg-rgb: 245, 230, 211;
+}
+
+/* Apply base typography */
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Heading Typography */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-heading);
+  color: var(--text-primary);
+}
+
+/* Logo specific styling */
+.navbar-brand {
+  font-family: var(--font-family-logo) !important;
+  color: var(--text-primary) !important;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Decorative text styling */
+.decorative-text,
+.script-text {
+  font-family: var(--font-family-decorative);
+}
+
+/* Link styling to ensure proper colors */
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Badge styling with bread colors */
+.badge {
+  background-color: var(--primary-color) !important;
+  color: var(--bg-primary) !important;
+}
+
+/* Card styling with warm backgrounds */
+.card {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-light);
+}
+
+/* Navigation styling */
+.navbar {
+  background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--border-medium);
+}
+
+.nav-link {
+  color: var(--text-primary) !important;
+}
+
+.nav-link:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Button styling */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--bg-primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-primary);
+}
+
+/* Form styling */
+.form-control {
+  background-color: var(--bg-primary);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+}
+
+.form-control:focus {
+  background-color: var(--bg-primary);
+  border-color: var(--primary-color);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.2rem rgba(154, 124, 79, 0.25);
+}

@@ -152,11 +152,11 @@
   .book-content {
     font-size: 12pt;
     line-height: 1.4;
-    color: #000;
+    color: black;
   }
 
   .book-meta ul {
     background: white;
-    border: 1px solid #000;
+    border: 1px solid black;
   }
 }
