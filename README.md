@@ -82,7 +82,6 @@ mis-panes/
 │   ├── categorias.njk      # Listado de categorías
 │   ├── categoria.njk       # Página de categoría individual
 │   ├── acerca-de.njk       # Página "Acerca de"
-│   │
 │   ├── recetas/            # Carpeta de recetas (Markdown)
 │   │   ├── hogaza-basica.md
 │   │   ├── pan-de-centeno.md
