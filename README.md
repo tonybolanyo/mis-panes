@@ -75,7 +75,6 @@ mis-panes/
 ├── README.md                 # Este archivo
 ├── COLOR_PALETTE.md          # Documentación de paleta de colores
 ├── .gitignore               # Archivos a ignorar por Git
-├── 
 ├── src/                     # Código fuente
 │   ├── index.njk           # Página principal
 │   ├── recetas.njk         # Listado de recetas
